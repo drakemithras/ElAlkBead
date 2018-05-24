@@ -1,0 +1,6 @@
+Egyszerû hexa táblás két játékos által játszható csata szimulátor körökre osztva.
+
+Egy szerverbõl és egy kliensbõl áll.
+
+a kliens fel lesz bontva grafikai, hálózati és logikai részrekre.
+a szerver ellenõrzi a kliensek által küldött lépések helyességét.

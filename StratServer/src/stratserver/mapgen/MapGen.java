@@ -26,7 +26,7 @@ public class MapGen {
             }
         }
         
-        for (int idy = 5; idy < map.length-5; ++idy){
+        for (int idy = 0; idy < map.length; ++idy){
             for (int idx = 5; idx < map[idy].length-5; ++idx){
                 Random r = new Random();
                 if (r.nextInt(100)<10){

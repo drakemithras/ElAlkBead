@@ -14,4 +14,16 @@ public class Battleground {
     public Battleground (Tile[][] map){
         this.map = map;
     }
+    
+    @Override
+    public String toString(){
+        StringBuilder retVal = new StringBuilder();
+        for (int idy = 0; idy < map.length; ++idy){
+            for (int idx = 0; idx < map[idy].length; ++idx){
+                retVal.append(map[idy][idx].id);
+            }
+            retVal.append("\n");
+        }
+        return retVal.toString();
+    }
 }

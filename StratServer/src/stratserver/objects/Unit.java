@@ -14,4 +14,12 @@ public class Unit extends Tile{
     protected int attack;
     protected int defense;
     protected int movement;
+    
+    public Unit (int id, int health, int attack, int defense, int movement){
+        super(false, id);
+        this.health = health;
+        this.attack = attack;
+        this.defense = defense;
+        this.movement = movement;
+    }
 }

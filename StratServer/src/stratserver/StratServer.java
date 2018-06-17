@@ -23,22 +23,34 @@ public class StratServer {
      */
     public static void main(String[] args) {
         ServerSocket serverSocket = null;
-        Socket socket = null;
-
+        Socket playerOne = null;
+        Socket playerTwo = null;
+        
         try {
             serverSocket = new ServerSocket(PORT);
         } catch (IOException e) {
             e.printStackTrace();
 
         }
-        while (true) {
+        System.out.println("Waiting for player one.");
+        while (playerOne == null) {
             try {
-                socket = serverSocket.accept();
+                playerOne = serverSocket.accept();
             } catch (IOException e) {
                 System.out.println("I/O error: " + e);
             }
             // new thread for a client
-            new GameThread(socket).start();
+            new GameThread(playerOne).start();
+        }
+        System.out.println("Waiting for player two.");
+        while (playerTwo == null) {
+            try {
+                playerTwo = serverSocket.accept();
+            } catch (IOException e) {
+                System.out.println("I/O error: " + e);
+            }
+            // new thread for a client
+            new GameThread(playerTwo).start();
         }
     }
     

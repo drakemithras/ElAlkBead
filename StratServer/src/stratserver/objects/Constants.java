@@ -6,12 +6,10 @@
 package stratserver.objects;
 
 /**
- * A térkép szerkezete.
+ *
  * @author Ahkriin
  */
-public class Battleground {
-    protected Tile[][] map;
-    public Battleground (Tile[][] map){
-        this.map = map;
-    }
+public class Constants {
+    public static int MAP_X_SIZE = 20;
+    public static int MAP_Y_SIZE = 20;
 }

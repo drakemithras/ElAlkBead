@@ -6,12 +6,9 @@
 package stratserver.objects;
 
 /**
- * A térkép szerkezete.
+ *
  * @author Ahkriin
  */
-public class Battleground {
-    protected Tile[][] map;
-    public Battleground (Tile[][] map){
-        this.map = map;
-    }
+public class Labels {
+    public static final String[] label = {"Mező","Szikla"};
 }

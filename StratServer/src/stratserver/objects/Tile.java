@@ -11,5 +11,16 @@ package stratserver.objects;
  */
 public class Tile {
     protected boolean passable;
-    protected boolean id;
+    protected int id;
+    protected String name;
+    
+    public Tile (){
+        this.passable = true;
+        this.id = 0;
+    }
+    
+    public Tile (boolean passable, int id){
+        this.passable = passable;
+        this.id = id;
+    }
 }

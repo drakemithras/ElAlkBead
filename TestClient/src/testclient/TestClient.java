@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.xml;
+package testclient;
 
 /**
- * Az egység XML-eket beolvasó osztály. 
+ *
  * @author Ahkriin
  */
-public class XmlReader {
+public class TestClient {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }

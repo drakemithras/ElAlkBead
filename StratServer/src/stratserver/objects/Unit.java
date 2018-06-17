@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.xml;
+package stratserver.objects;
 
 /**
- * Az egység XML-eket beolvasó osztály. 
+ * Egy egység.
  * @author Ahkriin
  */
-public class XmlReader {
-    
+public class Unit extends Tile{
+    protected int health;
+    protected int attack;
+    protected int defense;
+    protected int movement;
 }

@@ -6,7 +6,7 @@
 package stratserver.mapgen;
 
 /**
- *
+ * A kezdeti térkép generálását végző osztály
  * @author Ahkriin
  */
 public class MapGen {

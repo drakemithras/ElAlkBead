@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.xml;
+package stratserver.objects;
 
 /**
- * Az egység XML-eket beolvasó osztály. 
+ * Egy mező amiből a térkép előáll.
  * @author Ahkriin
  */
-public class XmlReader {
-    
+public class Tile {
+    protected boolean passable;
+    protected boolean id;
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game_units>
+
+<unit>
+	<name>Soldier</name>
+	<health>200</health>
+	<attack>20</attack>
+	<deffense>15</deffense>
+	<move>20</move>
+</unit>
+
+<unit>
+	<name>Marksman</name>
+	<health>130</health>
+	<attack>25</attack>
+	<deffense>12</deffense>
+	<move>17</move>
+</unit>
+
+<unit>
+	<name>Jeep</name>
+	<health>350</health>
+	<attack>35</attack>
+	<deffense>25</deffense>
+	<move>60</move>
+</unit>
+
+<unit>
+	<name>Armour-breaker</name>
+	<health>150</health>
+	<attack>30</attack>
+	<deffense>10</deffense>
+	<move>15</move>
+</unit>
+
+<unit>
+	<name>Tank</name>
+	<health>650</health>
+	<attack>60</attack>
+	<deffense>50</deffense>
+	<move>12</move>
+</unit>
+</game_units>

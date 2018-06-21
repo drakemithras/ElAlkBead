@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.objects;
+package strat.objects;
+
+import java.io.Serializable;
 
 /**
  *
  * @author Ahkriin
  */
-public class Labels {
-    public static final String[] label = {"Mező","Szikla"};
+public class Constants{
+    public static int MAP_X_SIZE = 20;
+    public static int MAP_Y_SIZE = 20;
 }

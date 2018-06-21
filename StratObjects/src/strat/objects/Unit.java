@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.objects;
+package strat.objects;
 
 /**
  * Egy egység.
  * @author Ahkriin
  */
 public class Unit extends Tile{
+    static final long serialVersionUID = 7891L;
     protected int health;
     protected int attack;
     protected int defense;

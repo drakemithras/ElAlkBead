@@ -6,9 +6,9 @@
 package stratserver.mapgen;
 
 import java.util.Random;
-import stratserver.objects.Battleground;
-import stratserver.objects.Constants;
-import stratserver.objects.Tile;
+import strat.objects.Battleground;
+import strat.objects.Constants;
+import strat.objects.Tile;
 
 /**
  * A kezdeti térkép generálását végző osztály

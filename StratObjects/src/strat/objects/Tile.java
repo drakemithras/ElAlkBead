@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.objects;
+package strat.objects;
+
+import java.io.Serializable;
 
 /**
  * Egy mező amiből a térkép előáll.
  * @author Ahkriin
  */
-public class Tile {
+public class Tile implements Serializable{
     protected boolean passable;
     protected int id;
     protected String name;

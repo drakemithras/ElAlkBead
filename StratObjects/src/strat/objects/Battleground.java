@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stratserver.objects;
+package strat.objects;
+
+import java.io.Serializable;
 
 /**
  * A térkép szerkezete.
  * @author Ahkriin
  */
-public class Battleground {
+public class Battleground implements Serializable{
+    static final long serialVersionUID = 1234;
     protected Tile[][] map;
     public Battleground (Tile[][] map){
         this.map = map;

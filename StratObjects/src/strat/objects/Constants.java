@@ -5,13 +5,13 @@
  */
 package strat.objects;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Ahkriin
  */
 public class Constants{
-    public static int MAP_X_SIZE = 20;
-    public static int MAP_Y_SIZE = 20;
+    public static final int PORT = 7654;
+    
+    public static final int MAP_X_SIZE = 20;
+    public static final int MAP_Y_SIZE = 20;
 }

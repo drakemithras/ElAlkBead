@@ -8,6 +8,7 @@ package stratserver;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import strat.objects.Constants;
 import stratserver.game.GameThread;
 
 /**
@@ -16,8 +17,6 @@ import stratserver.game.GameThread;
  * @author Ahkriin
  */
 public class StratServer {
-    
-    public static final int PORT = 7654;
     /**
      * @param args the command line arguments
      */
@@ -27,30 +26,37 @@ public class StratServer {
         Socket playerTwo = null;
         
         try {
-            serverSocket = new ServerSocket(PORT);
+            serverSocket = new ServerSocket(Constants.PORT);
         } catch (IOException e) {
             e.printStackTrace();
 
         }
-        System.out.println("Waiting for player one.");
-        while (playerOne == null) {
-            try {
-                playerOne = serverSocket.accept();
-            } catch (IOException e) {
-                System.out.println("I/O error: " + e);
+        while (playerOne == null || playerTwo == null){
+            while (playerOne == null) {
+                System.out.println("Waiting for player one.");
+                try {
+                    playerOne = serverSocket.accept();
+                } catch (IOException e) {
+                    System.out.println("I/O error: " + e);
+                }
+                // new thread for a client
+                System.out.println("Player one connected");
+                new GameThread(playerOne, false).start();
+                System.out.println("Thread start");
             }
-            // new thread for a client
-            new GameThread(playerOne).start();
-        }
-        System.out.println("Waiting for player two.");
-        while (playerTwo == null) {
-            try {
-                playerTwo = serverSocket.accept();
-            } catch (IOException e) {
-                System.out.println("I/O error: " + e);
+
+            while (playerTwo == null) {
+                System.out.println("Waiting for player two.");
+                try {
+                    playerTwo = serverSocket.accept();
+                } catch (IOException e) {
+                    System.out.println("I/O error: " + e);
+                }
+                // new thread for a client
+                System.out.println("Player two connected");
+                new GameThread(playerTwo, true).start();
+                System.out.println("Thread start");
             }
-            // new thread for a client
-            new GameThread(playerTwo).start();
         }
     }
     

@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author Ahkriin
  */
 public class Tile implements Serializable{
+    static final long serialVersionUID = 4567L;
     protected boolean passable;
     protected int id;
     protected String name;

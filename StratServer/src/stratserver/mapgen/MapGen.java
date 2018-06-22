@@ -15,10 +15,10 @@ import strat.objects.Tile;
  * @author Ahkriin
  */
 public class MapGen {
-    private Battleground bg;
-    private Tile[][] map;
+    private static Battleground bg;
+    private static Tile[][] map;
     
-    public Battleground generate(){
+    public static Battleground generate(){
         map = new Tile[Constants.MAP_Y_SIZE][Constants.MAP_X_SIZE];      
         for (int idy = 0; idy < map.length; ++idy){
             for (int idx = 0; idx < map[idy].length; ++idx){

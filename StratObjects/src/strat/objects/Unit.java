@@ -17,6 +17,7 @@ public class Unit extends Tile{
     protected int defense;
     protected int movement;
     protected boolean defending;
+    protected boolean playerTwoOwned;
     
     public Unit (int id, String name, int health, int attack, int defense, int movement){
         super(false, id);
@@ -33,6 +34,10 @@ public class Unit extends Tile{
     
     public void setHealth (int value){
         this.health = value;
+    }
+    
+    public void setPlayerTwoOwned (boolean value){
+        this.playerTwoOwned = value;
     }
     
     @Override

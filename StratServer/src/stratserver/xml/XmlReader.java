@@ -21,7 +21,7 @@ import strat.objects.Unit;
  * @author Ahkriin
  */
 public class XmlReader {
-    public List<Unit> readXml (File inputFile){
+    public static List<Unit> readXml (File inputFile){
         List<Unit> retVal = new ArrayList<Unit>();
         try {
          DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

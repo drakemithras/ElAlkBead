@@ -6,6 +6,7 @@
 package stratserver.game;
 
 import strat.objects.Battleground;
+import strat.objects.Move;
 import stratserver.mapgen.MapGen;
 
 /**
@@ -41,7 +42,7 @@ public class GameState {
         this.playerTwoTurn = value;
     }
     
-    private void move(int startX, int startY, int destX, int destY){
-        
+    public boolean move(Move plannedMove){
+        return false;
     }
 }

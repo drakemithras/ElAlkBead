@@ -5,10 +5,14 @@
  */
 package stratserver.mapgen;
 
+import java.io.File;
+import java.util.List;
 import java.util.Random;
 import strat.objects.Battleground;
 import strat.objects.Constants;
 import strat.objects.Tile;
+import strat.objects.Unit;
+import stratserver.xml.XmlReader;
 
 /**
  * A kezdeti térkép generálását végző osztály
@@ -35,6 +39,18 @@ public class MapGen {
             }
         }
         
+        List<Unit> units = XmlReader.readXml(new File("Game_units.xml"));
+        
+        int offset = 0;
+        for (Unit unit : units){
+            map[0+offset][0] = unit;
+            map[map.length-1-offset][0] = unit;
+            
+            unit.setPlayerTwoOwned(true);
+            map[0+offset][map[0].length-1] = unit;
+            map[map.length-1-offset][map[0].length-1] = unit;
+            ++offset;
+        }
         return new Battleground(map);
     }
 }

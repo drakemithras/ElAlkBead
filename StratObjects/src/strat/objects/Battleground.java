@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Ahkriin
  */
 public class Battleground implements Serializable{
-    static final long serialVersionUID = 1234;
+    static final long serialVersionUID = 1234L;
     protected Tile[][] map;
     public Battleground (Tile[][] map){
         this.map = map;

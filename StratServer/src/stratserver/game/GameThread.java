@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import strat.objects.Move;
 
 /**
  * Játékszabályokat lebonyolító osztály
@@ -25,6 +26,8 @@ public class GameThread extends Thread{
     protected boolean playerTwoTurn;
     private boolean active;
     private GameState gameStateInstance;
+    ObjectOutputStream oos;
+    ObjectInputStream ois;
     
     public GameThread(Socket clSocket, boolean playerTwo) {
         active = true;
@@ -37,28 +40,32 @@ public class GameThread extends Thread{
     public void run (){
         while(active){
             try {
-                ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+                oos = new ObjectOutputStream(socket.getOutputStream());
                 oos.writeObject(gameStateInstance.getMap());
-                ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
-                
+                ois = new ObjectInputStream(socket.getInputStream());
+                oos.flush();
                 
                 this.playerTwoTurn = gameStateInstance.getPlayerTwoTurn();
                 if (this.playerTwo){
                     oos.writeBoolean(this.playerTwoTurn);
+                    oos.flush();
                     if (this.playerTwoTurn){
-                        ois.readObject();
+                        waitForValidCommand(playerTwo);
                     }
                 }else{
                     oos.writeBoolean(!this.playerTwoTurn);
+                    oos.flush();
                     if (!this.playerTwoTurn){
-                        ois.readObject();
+                        waitForValidCommand(!playerTwo);
                     }
                 }
-                
+                oos.flush();
             } catch (IOException ex) {
-                System.out.println("error");
+                System.out.println("IOException");
+                break;
             } catch (ClassNotFoundException ex) {
-                System.out.println("error");
+                System.out.println("ClassNotFoundException");
+                break;
             }
         }
         if (playerTwo){
@@ -68,5 +75,13 @@ public class GameThread extends Thread{
         }
     }
     
-    
+    private void waitForValidCommand (boolean playerTwo) throws IOException, ClassNotFoundException{
+        boolean valid = false;
+        while (!valid){
+            Move move = (Move) ois.readObject();
+            move.setPlayerTwo(playerTwo);
+            valid = gameStateInstance.move(move);
+            oos.writeBoolean(valid);
+        }
+    }
 }

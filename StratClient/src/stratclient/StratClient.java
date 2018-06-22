@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import strat.objects.Battleground;
 import strat.objects.Constants;
+import strat.objects.Move;
 
 /**
  *
@@ -43,8 +44,13 @@ public class StratClient {
                 System.out.println("my turn: "+yourTurn);
                 System.out.println("map:\n"+map);
                 
-                if (yourTurn){
-                    oos.writeObject("");
+                boolean valid = false;
+                while (!valid){
+                    if (yourTurn){
+                        oos.writeObject(new Move(0,0,0,0,false));
+                        oos.flush();
+                        valid = ois.readBoolean();
+                    }
                 }
             }
  
